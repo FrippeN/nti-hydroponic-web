@@ -34,7 +34,7 @@ header .logo img {
 /* Streaming Container */
 #streaming-container {
   position: relative;
-  top: 2vh; /* 3vh below the header */
+  top: 1vh; /* 3vh below the header */
   z-index: 5;
   margin: auto;
   width: 70vw; /* Responsive width */
