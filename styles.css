@@ -13,7 +13,7 @@ body {
 /* Header */
 header {
   background: rgba(255, 255, 255, 0.1); /* Translucent white background */
-  padding: 3vh 0;
+  padding: 4vh 0;
   position: fixed;
   top: 0;
   width: 100%;
@@ -27,8 +27,8 @@ header {
 }
 
 header .logo img {
-  max-height: 450px;
-  max-width: 450px;
+  max-height: 400px;
+  max-width: 400px;
 }
 
 /* Streaming Container */
