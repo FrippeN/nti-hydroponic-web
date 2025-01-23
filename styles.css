@@ -3,9 +3,7 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: relative;
   padding-top: 150px; /* Reserve space for header */
   overflow: auto; /* Enable scrolling */
   background: url("media/bg.jpg") no-repeat center center fixed;
@@ -36,8 +34,9 @@ header .logo img {
 /* Streaming Container */
 #streaming-container {
   position: relative;
-  top: 6vh; /* 3vh below the header */
+  top: 2vh; /* 3vh below the header */
   z-index: 5;
+  margin: auto;
   width: 70vw; /* Responsive width */
   max-width: 1200px; /* Limit the maximum size */
   aspect-ratio: 16 / 9; /* Maintain 16:9 aspect ratio */
@@ -59,7 +58,7 @@ footer {
   background: rgba(255, 255, 255, 0.1);
   padding: 10px 0;
   text-align: center;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   width: 100%;
   box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.4);
