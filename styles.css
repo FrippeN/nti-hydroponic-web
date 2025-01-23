@@ -15,7 +15,7 @@ body {
 /* Header */
 header {
   background: rgba(255, 255, 255, 0.1); /* Translucent white background */
-  padding: 30px 0;
+  padding: 3vh 0;
   position: fixed;
   top: 0;
   width: 100%;
