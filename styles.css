@@ -1,0 +1,86 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 150px; /* Reserve space for header */
+  overflow: hidden; /* Prevent scrolling */
+  background: url("media/bg.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Header */
+header {
+  background: rgba(255, 255, 255, 0.1); /* Translucent white background */
+  padding: 30px 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Shadow for depth */
+  backdrop-filter: blur(5px); /* Blur effect */
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header .logo img {
+  max-height: 450px;
+  max-width: 450px;
+}
+
+/* Streaming Container */
+#streaming-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  width: 70vw; /* Responsive width */
+  max-width: 1200px; /* Limit the maximum size */
+  aspect-ratio: 16 / 9; /* Maintain 16:9 aspect ratio */
+  background: rgba(255, 255, 255, 0.1); /* Translucent background */
+  padding: 20px;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+  backdrop-filter: blur(5px); /* Blur effect for consistency */
+}
+
+#streaming-container iframe {
+  width: 100%; /* Full width of the container */
+  height: 100%; /* Full height of the container */
+  border: none; /* Remove iframe border */
+}
+
+/* Footer */
+footer {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px 0;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+  color: white;
+  font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    padding-top: 100px; /* Adjust for smaller header on mobile */
+  }
+
+  header .logo img {
+    max-height: 100px; /* Smaller logo */
+    max-width: 100px;
+  }
+
+  #streaming-container {
+    width: 90vw; /* Adjust width for mobile */
+  }
+}
