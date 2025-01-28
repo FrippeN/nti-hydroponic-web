@@ -21,7 +21,7 @@ header {
   backdrop-filter: blur(5px); /* Blur effect */
   z-index: 10;
   display: flex;
-  justify-content: center;
+  justify-content: space-between; /* Space between logo and nav */
   align-items: center;
   height: 6vh; /* Explicit height for the header */
 }
@@ -29,6 +29,29 @@ header {
 header .logo img {
   max-height: 400px;
   max-width: 400px;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px; /* Space between links */
+  margin: 0;
+  padding: 0;
+}
+
+header nav ul li {
+  display: inline;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: white; /* White text color */
+  font-size: 1.2em; /* Increase font size */
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+header nav ul li a:hover {
+  color: #ffcc00; /* Change color on hover */
 }
 
 /* Streaming Container */
