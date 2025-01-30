@@ -13,7 +13,7 @@ body {
 /* Header */
 header {
   background: rgba(255, 255, 255, 0.1); /* Translucent white background */
-  padding: 4vh 0;
+  padding: 4vh 2vw; /* Add horizontal padding for margins */
   position: fixed;
   top: 0;
   width: 100%;
@@ -21,14 +21,47 @@ header {
   backdrop-filter: blur(5px); /* Blur effect */
   z-index: 10;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start; /* Align items to the start */
   align-items: center;
   height: 6vh; /* Explicit height for the header */
+}
+
+header .logo {
+  margin-right: 2vw; /* Small margin to the right of the logo */
 }
 
 header .logo img {
   max-height: 400px;
   max-width: 400px;
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  margin-left: 2vw; /* Match the margin-right of the logo */
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px; /* Space between links */
+  margin: 0;
+  padding: 0;
+}
+
+header nav ul li {
+  display: inline;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: white; /* White text color */
+  font-size: 1.2em; /* Increase font size */
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+header nav ul li a:hover {
+  color: #ee60b8; /* Change color on hover */
 }
 
 /* Streaming Container */
