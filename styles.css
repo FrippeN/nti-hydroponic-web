@@ -21,24 +21,24 @@ header {
   backdrop-filter: blur(5px); /* Blur effect */
   z-index: 10;
   display: flex;
-  justify-content: flex-start; /* Align items to the start */
   align-items: center;
   height: 6vh; /* Explicit height for the header */
 }
 
 header .logo {
-  margin-right: 2vw; /* Small margin to the right of the logo */
+  display: flex;
+  align-items: center;
+  margin-right: 2vw; /* Adjust margin as needed */
 }
 
 header .logo img {
-  max-height: 400px;
-  max-width: 400px;
+  height: 8vh; /* Increase the height as needed */
+  width: auto; /* Maintain aspect ratio */
 }
 
 header nav {
   display: flex;
   align-items: center;
-  margin-left: 2vw; /* Match the margin-right of the logo */
 }
 
 header nav ul {
@@ -107,8 +107,8 @@ footer {
   }
 
   header .logo img {
-    max-height: 100px; /* Smaller logo */
-    max-width: 100px;
+    height: 6vh; /* Adjust the height as needed */
+    width: auto; /* Maintain aspect ratio */
   }
 
   #streaming-container {

@@ -6,6 +6,8 @@
     <title>NTI Hydroponics</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" href="/media/ntilogo.png" type="image/x-icon" />
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
   </head>
   <body>
     <!-- Header -->
@@ -15,7 +17,7 @@
       </div>
       <nav>
         <ul>
-          <li><a href="index.html">About Us</a></li>
+          <li><a href="about.html">About Us</a></li>
           <li><a href="index.html">Documentation</a></li>
         </ul>
       </nav>
@@ -23,12 +25,22 @@
 
     <!-- Streaming Container -->
     <div id="streaming-container">
-      <iframe
-        src="https://www.youtube.com/embed/kUDzl2DLhmU?si=t1N6wYAUNWjiXQQi"
-        frameborder="0"
-        allowfullscreen
-      >
-      </iframe>
+      <video id="video" controls autoplay></video>
+ 
+      <script>
+        var video = document.getElementById('video');
+        if (Hls.isSupported()) {
+            var hls = new Hls();
+            hls.loadSource('http://37.123.128.130:8080/hls/mystream.m3u8');
+            hls.attachMedia(video);
+            hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                video.play();
+            });
+        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            video.src = 'http://37.123.128.130:8080/hls/mystream.m3u8';
+            video.play();
+        }
+      </script>
     </div>
 
     <!-- Footer -->
