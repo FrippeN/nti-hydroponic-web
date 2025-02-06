@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Samling av dokumentationer</title>
     <style>
+        /* Grundläggande styling för sidan */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -15,18 +16,24 @@
             flex-direction: column;
             align-items: center;
         }
+        
+        /* Styling för rubriken */
         h1 {
             margin: 20px;
             text-align: center;
         }
+        
+        /* Container för rutorna, använder grid-layout */
         .container {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(4, 1fr); /* 4 kolumner */
             gap: 20px;
             width: 80%;
             max-width: 1200px;
             padding: 20px;
         }
+        
+        /* Styling för varje ruta */
         .box {
             background-color: #ffffff;
             border: 1px solid #ddd;
@@ -36,6 +43,8 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s, box-shadow 0.2s;
         }
+        
+        /* Effekter vid hover */    
         .box:hover {
             transform: translateY(-5px);
             box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
@@ -45,18 +54,23 @@
             color: #007bff;
             font-weight: bold;
         }
+        /* Hover-effekt på länkarna */
         .box a:hover {
             text-decoration: underline;
         }
+        /* Anpassning för mindre skärmar */
         @media (max-width: 800px) {
             .container {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr);/* 2 kolumner istället för 4 */
             }
         }
     </style>
 </head>
 <body>
+     <!-- Sidans rubrik -->
     <h1>Samling av dokumentationer</h1>
+
+    <!-- Container som innehåller alla dokumentlänkar -->
     <div class="container">
         <div class="box"><a href="samlingdokumentationer/sida1.html" target="_blank">analog vattennivåsensor</a></div>
         <div class="box"><a href="samlingdokumentationer/sida2.html" target="_blank">RGB</a></div>

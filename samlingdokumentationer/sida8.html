@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inbäddade Google Dokument</title>
     <style>
+        /* Grundläggande styling för hela sidan */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -13,30 +14,41 @@
             color: #333;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
+            min-height: 100vh; /* Gör att sidan tar upp hela höjden av skärmen */
         }
+
+        /* Stil för huvudrubriken */
         h1 {
             margin: 20px auto;
             text-align: center;
         }
+
+        /* Container för det inbäddade Google-dokumentet */
         .doc-container {
-            flex-grow: 1;
+            flex-grow: 1; /* Gör att denna sektion fyller all tillgänglig plats */
             display: flex;
             flex-direction: column;
             width: 100%;
             height: calc(100vh - 60px); /* Justerar höjden för att ta hänsyn till rubriken och tillbaka-länken */
         }
+
+        /* Gör att inbäddningen av Google Docs täcker hela området */
         iframe {
             width: 100%;
             height: 100%;
             border: none;
         }
+
+        /* Döljer länken till dokumentet för större skärmar */
         .mobile-link {
             display: none;
         }
+
+        /* När skärmen är mindre än 800px (mobil), döljs det inbäddade dokumentet
+           och en klickbar länk visas istället */
         @media (max-width: 800px) {
             .doc-container {
-                display: none;
+                display: none; /* Döljer den inbäddade versionen */
             }
             .mobile-link {
                 display: block;
@@ -50,6 +62,8 @@
                 font-weight: bold;
             }
         }
+
+        /* Stil för tillbakalänken högst upp till vänster */
         .back-link {
             position: absolute;
             top: 10px;
@@ -67,15 +81,24 @@
     </style>
 </head>
 <body>
+
+    <!-- Länk för att gå tillbaka till föregående sida -->
     <div class="back-link">
         <a href="../dokumentation.html">&#8592; Tillbaka</a>
     </div>
+
+    <!-- Huvudrubrik på sidan -->
     <h1>kablar</h1>
+
+    <!-- Inbäddat Google Dokument som visas på större skärmar -->
     <div class="doc-container">
         <iframe src="https://docs.google.com/document/d/1gsiIlrafk2U8lCmQ53hAjRwNcDzEBaeRiJ-LA0ODC2I/edit?tab=t.0"></iframe>
     </div>
+
+    <!-- Länk som visas istället för inbäddningen om skärmen är mindre än 800px -->
     <div class="mobile-link">
         <p><a href="https://docs.google.com/document/d/1gsiIlrafk2U8lCmQ53hAjRwNcDzEBaeRiJ-LA0ODC2I/edit?tab=t.0" target="_blank">Öppna dokumentet här</a></p>
     </div>
+
 </body>
 </html>
