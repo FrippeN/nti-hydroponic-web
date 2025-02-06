@@ -13,19 +13,30 @@
             color: #333;
             display: flex;
             flex-direction: column;
-            align-items: center;
             min-height: 100vh;
         }
         h1 {
-            margin: 20px;
+            margin: 20px auto;
             text-align: center;
         }
         .doc-container {
             flex-grow: 1;
             display: flex;
             flex-direction: column;
+            width: 100%;
+            height: calc(100vh - 60px); /* Justerar höjden för att ta hänsyn till rubriken och tillbaka-länken */
         }
-                 display: none;
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .mobile-link {
+            display: none;
+        }
+        @media (max-width: 800px) {
+            .doc-container {
+                display: none;
             }
             .mobile-link {
                 display: block;
@@ -59,24 +70,12 @@
     <div class="back-link">
         <a href="../dokumentation.html">&#8592; Tillbaka</a>
     </div>
-    <h1>Inbäddade Google Dokument</h1>
+    <h1>Streaming</h1>
     <div class="doc-container">
-        <iframe src="https://docs.google.com/document/d/11P3lSaceCpbH5r2Psc_GGnKIplrD_PxNheUbJ3Vos10/pub?embedded=true"></iframe>
+        <iframe src="https://docs.google.com/document/d/1vkIYrPMyGNz70K7jIqN6MGzWtIRCtME-6KkfFC5Yrrw/edit?tab=t.0#heading=h.rl9msbf4tape"></iframe>
     </div>
     <div class="mobile-link">
-        <p><a href="https://docs.google.com/document/d/11P3lSaceCpbH5r2Psc_GGnKIplrD_PxNheUbJ3Vos10" target="_blank">Öppna dokumentet här</a></p>
+        <p><a href="https://docs.google.com/document/d/1vkIYrPMyGNz70K7jIqN6MGzWtIRCtME-6KkfFC5Yrrw/edit?tab=t.0#heading=h.rl9msbf4tape" target="_blank">Öppna dokumentet här</a></p>
     </div>
 </body>
-</html>     iframe {
-            width: 100%;
-            height: 100vh;
-            border: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-        .mobile-link {
-            display: none;
-        }
-        @media (max-width: 800px) {
-            .doc-container {
-  
+</html>
