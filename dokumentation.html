@@ -63,10 +63,35 @@
             .container {
                 grid-template-columns: repeat(2, 1fr);/* 2 kolumner istället för 4 */
             }
+
+        
+        /* Styling för tillbakalänken */
+        .back-link {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 16px;
+        }
+        
+        .back-link a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+        
+        .back-link a:hover {
+            text-decoration: underline;
+        }    
         }
     </style>
 </head>
 <body>
+
+     <!-- Tillbakalänk  -->
+     <div class="back-link">
+        <a href="index.html">&#8592; Tillbaka</a>
+    </div>
+
      <!-- Sidans rubrik -->
     <h1>Samling av dokumentationer</h1>
 
