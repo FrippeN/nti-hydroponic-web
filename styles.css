@@ -85,7 +85,7 @@ header nav ul li a:hover {
   width: 100%; /* Full width of the container minus padding */
   height: 100%; /* Full height of the container minus padding */
   border: none; /* Remove video border */
-  display: block; /* Ensure the video is a block element */
+  display: block; /* Ensure the video is a block */
   margin: 0 auto; /* Center the video horizontally */
 }
 
