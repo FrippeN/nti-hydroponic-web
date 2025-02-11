@@ -13,12 +13,14 @@
     <!-- Header -->
     <header>
       <div class="logo">
-        <img src="media/nti.png" alt="NTI Gymnasiet Uppsala Logo" />
+        <a href="index.html">
+          <img src="media/nti.png" alt="NTI Gymnasiet Uppsala Logo" />
+        </a>
       </div>
       <nav>
         <ul>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="index.html">Documentation</a></li>
+          <li><a href="about.html">Om oss</a></li>
+          <li><a href="dokumentation.html">Dokumentation</a></li>
         </ul>
       </nav>
     </header>
@@ -26,18 +28,18 @@
     <!-- Streaming Container -->
     <div id="streaming-container">
       <video id="video" controls autoplay></video>
- 
+
       <script>
         var video = document.getElementById('video');
         if (Hls.isSupported()) {
             var hls = new Hls();
-            hls.loadSource('http://37.123.128.130:8080/hls/mystream.m3u8');
+            hls.loadSource('https://hydroponics.ntig.dev/hls/stream.m3u8');
             hls.attachMedia(video);
             hls.on(Hls.Events.MANIFEST_PARSED, function() {
                 video.play();
             });
         } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-            video.src = 'http://37.123.128.130:8080/hls/mystream.m3u8';
+            video.src = 'https://hydroponics.ntig.dev/hls/stream.m3u8';
             video.play();
         }
       </script>
