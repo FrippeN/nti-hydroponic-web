@@ -1,114 +1,46 @@
 <!DOCTYPE html>
 <html lang="sv">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Samling av dokumentationer</title>
-    <style>
-        /* Grundläggande styling för sidan */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        /* Styling för rubriken */
-        h1 {
-            margin: 20px;
-            text-align: center;
-        }
-        
-        /* Container för rutorna, använder grid-layout */
-        .container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr); /* 4 kolumner */
-            gap: 20px;
-            width: 80%;
-            max-width: 1200px;
-            padding: 20px;
-        }
-        
-        /* Styling för varje ruta */
-        .box {
-            background-color: #ffffff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            text-align: center;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        
-        /* Effekter vid hover */    
-        .box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-        }
-        .box a {
-            text-decoration: none;
-            color: #007bff;
-            font-weight: bold;
-        }
-        /* Hover-effekt på länkarna */
-        .box a:hover {
-            text-decoration: underline;
-        }
-        /* Anpassning för mindre skärmar */
-        @media (max-width: 800px) {
-            .container {
-                grid-template-columns: repeat(2, 1fr);/* 2 kolumner istället för 4 */
-            }
-        }
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="/media/ntilogo.png" type="image/x-icon" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <a href="index.html">
+          <img src="media/nti.png" alt="NTI Gymnasiet Uppsala Logo" />
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="about.html">Om oss</a></li>
+          <li><a href="dokumentation.html">Dokumentation</a></li>
+        </ul>
+      </nav>
+    </header>
 
-        /* Styling för tillbakalänken */
-        .back-link {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            font-size: 16px;
-        }
-        
-        .back-link a {
-            text-decoration: none;
-            color: #007bff;
-            font-weight: bold;
-        }
-        
-        .back-link a:hover {
-            text-decoration: underline;
-        }
-        
-    </style>
-</head>
-<body>
-
-     <!-- Tillbakalänk  -->
-     <div class="back-link">
-        <a href="index.html">&#8592; Tillbaka</a>
+    <!-- Container för dokumentlänkar -->
+    <div class="documents_container">
+      <h1>Samling av dokumentationer</h1>
+      <a href="samlingdokumentationer/sida1.html" target="_blank" class="box">Analog vattennivåsensor</a>
+      <a href="samlingdokumentationer/sida2.html" target="_blank" class="box">RGB</a>
+      <a href="samlingdokumentationer/sida3.html" target="_blank" class="box">Streaming</a>
+      <a href="samlingdokumentationer/sida4.html" target="_blank" class="box">Master Raspberry Pi</a>
+      <a href="samlingdokumentationer/sida5.html" target="_blank" class="box">Näringspump</a>
+      <a href="samlingdokumentationer/sida6.html" target="_blank" class="box">Skärmställ</a>
+      <a href="samlingdokumentationer/sida7.html" target="_blank" class="box">Rören</a>
+      <a href="samlingdokumentationer/sida8.html" target="_blank" class="box">Kablarna</a>
+      <a href="samlingdokumentationer/sida9.html" target="_blank" class="box">Pumpfederation</a>
+      <a href="samlingdokumentationer/sida10.html" target="_blank" class="box">Rörställning</a>
+      <a href="samlingdokumentationer/sida11.html" target="_blank" class="box">Digital sensor</a>
+      <a href="samlingdokumentationer/sida12.html" target="_blank" class="box">Dokument 12</a>
     </div>
 
-     <!-- Sidans rubrik -->
-    <h1>Samling av dokumentationer</h1>
-
-    <!-- Container som innehåller alla dokumentlänkar -->
-    <div class="container">
-        <div class="box"><a href="samlingdokumentationer/sida1.html" target="_blank">analog vattennivåsensor</a></div>
-        <div class="box"><a href="samlingdokumentationer/sida2.html" target="_blank">RGB</a></div>
-        <div class="box"><a href="samlingdokumentationer/sida3.html" target="_blank">streaming</a></div>
-        <div class="box"><a href="samlingdokumentationer/sida4.html" target="_blank">master rasberry pi</a></div>
-        <div class="box"><a href="samlingdokumentationer/sida5.html" target="_blank">Näringspump</a></div>
-        <div class="box"><a href="samlingdokumentationer/sida6.html" target="_blank">skärmställ</a></div>
-        <div class="box"><a href="samlingdokumentationer/sida7.html" target="_blank">rören</a></div>
-        <div class="box"><a href="samlingdokumentationer/sida8.html" target="_blank">kablarna</a></div>
-        <div class="box"><a href="samlingdokumentationer/sida9.html" target="_blank">pumpfederation</a></div>
-        <div class="box"><a href="samlingdokumentationer/sida10.html" target="_blank">rörställning</a></div>
-        <div class="box"><a href="samlingdokumentationer/sida11.html" target="_blank">digital sensor</a></div>
-        <div class="box"><a href="samlingdokumentationer/sida1.html" target="_blank">Dokument 12</a></div>
-    </div>
-</body>
+    <!-- Footer -->
+    <footer>© 2025 NTI Gymnasiet Uppsala</footer>
+  </body>
 </html>

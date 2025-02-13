@@ -1,4 +1,4 @@
-/* General Styles*/
+/* General Styles */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -32,7 +32,7 @@ header .logo {
 }
 
 header .logo img {
-  height: 8vh; /* Increase the height as needed */
+  height: 6vh; /* Increase the height as needed */
   width: auto; /* Maintain aspect ratio */
 }
 
@@ -67,10 +67,10 @@ header nav ul li a:hover {
 /* Streaming Container */
 #streaming-container {
   position: relative;
-  top: 1vh; /* 1vh below the header */
+  top: 1vh; /* 3vh below the header */
   z-index: 5;
   margin: auto;
-  width: 80vw; /* Responsive width */
+  width: 70vw; /* Responsive width */
   max-width: 1200px; /* Limit the maximum size */
   aspect-ratio: 16 / 9; /* Maintain 16:9 aspect ratio */
   background: rgba(255, 255, 255, 0.1); /* Translucent background */
@@ -78,15 +78,59 @@ header nav ul li a:hover {
   border-radius: 10px; /* Rounded corners */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Subtle shadow */
   backdrop-filter: blur(5px); /* Blur effect for consistency */
-  overflow: hidden; /* Ensure content is contained within the container */
 }
 
-#streaming-container video {
-  width: 100%; /* Full width of the container minus padding */
-  height: 100%; /* Full height of the container minus padding */
-  border: none; /* Remove video border */
-  display: block; /* Ensure the video is a block */
-  margin: 0 auto; /* Center the video horizontally */
+#streaming-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none; /* Remove iframe border */
+}
+
+/* Documentation Container */
+.documents_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  width: 80%;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  text-align: center; /* Center the text inside the container */
+}
+
+.documents_container h1 {
+  grid-column: 1 / -1; /* Make the title span all columns */
+  margin-bottom: 20px; /* Add some space below the title */
+  color: white;
+}
+
+/* Box */
+.box {
+  display: flex; /* Use flexbox */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none; /* Remove underline from links */
+  color: white; /* Text color */
+  font-weight: bold; /* Bold text */
+  height: 150px; /* Set a fixed height for all boxes */
+}
+
+.box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
 /* Footer */
@@ -110,11 +154,16 @@ footer {
   }
 
   header .logo img {
-    height: 6vh; /* Adjust the height as needed */
+    height: 8vh; /* Adjust the height as needed */
     width: auto; /* Maintain aspect ratio */
   }
 
   #streaming-container {
     width: 90vw; /* Adjust width for mobile */
+  }
+
+  #about-container {
+    width: 90vw; /* Adjust width for mobile */
+    margin-left: 10px; /* Adjust margin for mobile */
   }
 }
