@@ -9,6 +9,11 @@ var player = videojs(videoElement, {
     durationDisplay: false,
     remainingTimeDisplay: false,
   },
+  html5: {
+    hls: {
+      liveSyncDurationCount: 30 // Set the player to be 30 seconds behind live
+    }
+  }
 });
 
 if (Hls.isSupported()) {
