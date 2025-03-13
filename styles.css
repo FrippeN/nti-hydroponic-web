@@ -90,13 +90,14 @@ header nav ul li a:hover {
   border-radius: 10px; /* Rounded corners */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Subtle shadow */
   backdrop-filter: blur(5px); /* Blur effect for consistency */
+  overflow: hidden; /* Ensure content is contained within the container */
 }
 
-#streaming-container video {
-  width: 100%; /* Full width of the container minus padding */
-  height: 100%; /* Full height of the container minus padding */
+#streaming-container .video-js {
+  width: 100%; /* Full width of the container */
+  height: 100%; /* Full height of the container */
   border: none; /* Remove video border */
-  display: block; /* Ensure the video is a block */
+  display: block; /* Ensure the video is a block element */
   margin: 0 auto; /* Center the video horizontally */
 }
 
