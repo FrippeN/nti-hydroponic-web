@@ -9,27 +9,48 @@ document.addEventListener("DOMContentLoaded", function() {
       currentTimeDisplay: false,
       durationDisplay: false,
       remainingTimeDisplay: false,
-      playToggle: false // Remove the play/pause button
+      playToggle: false,
+      volumeMenuButton: false
     },
-    autoplay: true, // Attempt to autoplay
-    muted: true, // Mute the video to allow autoplay on mobile
+    autoplay: true,
+    muted: true,
     html5: {
       hls: {
-        overrideNative: true, // Force the use of Video.js tech instead of native HLS
-        liveSyncDurationCount: 30 // Set the player to be 30 seconds behind live
+        overrideNative: true,
+        liveSyncDurationCount: 30
       },
       nativeAudioTracks: false,
       nativeVideoTracks: false
     }
   });
 
+  videoElement.setAttribute('playsinline', '');
+  videoElement.setAttribute('webkit-playsinline', '');
+
+  var hls;
+
   function initializeHls() {
     if (Hls.isSupported()) {
-      var hls = new Hls();
+      if (hls) {
+        hls.destroy();
+      }
+
+      hls = new Hls();
       hls.loadSource("https://hydroponics.ntig.dev/hls/stream.m3u8");
       hls.attachMedia(videoElement);
-      hls.on(Hls.Events.MANIFEST_PARSED, function () {
+
+      hls.on(Hls.Events.MANIFEST_PARSED, function() {
         player.play();
+      });
+
+      hls.on(Hls.Events.ERROR, function(event, data) {
+        if (data.fatal) {
+          if (data.type === Hls.ErrorTypes.NETWORK_ERROR) {
+            hls.startLoad();
+          } else {
+            initializeHls();
+          }
+        }
       });
     } else if (videoElement.canPlayType("application/vnd.apple.mpegurl")) {
       videoElement.src = "https://hydroponics.ntig.dev/hls/stream.m3u8";
@@ -39,27 +60,37 @@ document.addEventListener("DOMContentLoaded", function() {
 
   initializeHls();
 
-  // Force the player to play on initialization
   player.ready(function() {
-    player.play();
+    var liveButton = document.createElement('button');
+    liveButton.className = 'vjs-control vjs-button custom-live-button';
+    liveButton.innerHTML = 'LIVE';
+    liveButton.style.color = 'red';
+    liveButton.style.fontWeight = 'bold';
+
+    liveButton.onclick = function() {
+      initializeHls();
+    };
+
+    player.controlBar.el().appendChild(liveButton);
+
+    player.on('play', function() {
+      if (player.hasStarted() && player.paused()) { // Ensure video has started and is currently paused
+        if (hls && hls.liveSyncPosition !== null) {
+          videoElement.currentTime = hls.liveSyncPosition;
+          console.log('Resumed to live edge:', hls.liveSyncPosition);
+        } else {
+          console.log('Could not resume to live edge: hls instance or liveSyncPosition not available.');
+        }
+      } else if (!player.hasStarted()) {
+        console.log('Played player (initial play)');
+      } else {
+        console.log('Played player (not after pause)');
+      }
+    });
   });
 
-  // Handle autoplay restrictions on mobile devices
-  player.on('play', function() {
-    if (player.paused()) {
-      player.muted(true);
-      player.play();
-    }
-  });
-
-  // Ensure the video plays inline on mobile devices
-  videoElement.setAttribute('playsinline', '');
-  videoElement.setAttribute('webkit-playsinline', '');
-
-  // Attempt to play the video on user interaction if autoplay fails
   document.addEventListener('click', function() {
     if (player.paused()) {
-      player.muted(true);
       player.play();
     }
   });
