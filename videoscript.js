@@ -49,5 +49,10 @@ document.addEventListener("DOMContentLoaded", function () {
     seekToLiveEdge();
   });
 
+  // Log errors to the console
+  player.on(Clappr.Events.PLAYER_ERROR, function (error) {
+    console.error("Clappr player error:", error);
+  });
+
   console.log("Clappr player initialized with a " + liveDelay + "s live delay sync.");
 });
