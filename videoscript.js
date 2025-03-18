@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", function() {
       remainingTimeDisplay: false,
       playToggle: false // Remove the play/pause button
     },
+    autoplay: true, // Attempt to autoplay
+    muted: true, // Mute the video to allow autoplay on mobile
     html5: {
       hls: {
         liveSyncDurationCount: 30 // Set the player to be 30 seconds behind live
@@ -37,5 +39,13 @@ document.addEventListener("DOMContentLoaded", function() {
   // Force the player to play on initialization
   player.ready(function() {
     player.play();
+  });
+
+  // Handle autoplay restrictions on mobile devices
+  player.on('play', function() {
+    if (player.paused()) {
+      player.muted(true);
+      player.play();
+    }
   });
 });
