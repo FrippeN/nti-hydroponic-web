@@ -15,8 +15,11 @@ document.addEventListener("DOMContentLoaded", function() {
     muted: true, // Mute the video to allow autoplay on mobile
     html5: {
       hls: {
+        overrideNative: true, // Force the use of Video.js tech instead of native HLS
         liveSyncDurationCount: 30 // Set the player to be 30 seconds behind live
-      }
+      },
+      nativeAudioTracks: false,
+      nativeVideoTracks: false
     }
   });
 
