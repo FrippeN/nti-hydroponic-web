@@ -6,9 +6,8 @@
     <title>NTI Hydroponics</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" href="/media/ntilogo.png" type="image/x-icon" />
-    <link href="https://vjs.zencdn.net/7.15.4/video-js.css" rel="stylesheet" />
-    <script src="https://vjs.zencdn.net/7.15.4/video.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <!-- Include Clappr from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
   </head>
   <body>
     <!-- Header -->
@@ -28,10 +27,11 @@
 
     <!-- Streaming Container -->
     <div id="streaming-container">
-      <video id="video" class="video-js vjs-default-skin" controls autoplay muted playsinline></video>
+      <!-- Clappr replaces the traditional video element -->
+      <div id="player"></div>
     </div>
 
-    <!-- Link to the external JavaScript file -->
+    <!-- External JavaScript file -->
     <script src="videoscript.js"></script>
 
     <!-- Footer -->
