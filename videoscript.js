@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Set liveDelay to 60 seconds behind the live edge.
-  var liveDelay = 60;
+  // Set liveDelay to 30 seconds behind the live edge.
+  var liveDelay = 30;
 
   var player = new Clappr.Player({
     source: "https://hydroponics.ntig.dev/hls/stream.m3u8",
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Force seek to live edge (with 60s delay) when playback starts.
+  // Force seek to live edge (with 30s delay) when playback starts.
   player.on(Clappr.Events.PLAYER_PLAY, function () {
     seekToLiveEdge();
   });
