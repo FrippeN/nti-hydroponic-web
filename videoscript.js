@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
       remainingTimeDisplay: false,
       playToggle: false // Remove the play/pause button
     },
-    autoplay: 'muted', // Attempt to autoplay with muted
+    autoplay: true, // Attempt to autoplay
     muted: true, // Mute the video to allow autoplay on mobile
     html5: {
       hls: {
@@ -52,4 +52,12 @@ document.addEventListener("DOMContentLoaded", function() {
   // Ensure the video plays inline on mobile devices
   videoElement.setAttribute('playsinline', '');
   videoElement.setAttribute('webkit-playsinline', '');
+
+  // Attempt to play the video on user interaction if autoplay fails
+  document.addEventListener('click', function() {
+    if (player.paused()) {
+      player.muted(true);
+      player.play();
+    }
+  });
 });
