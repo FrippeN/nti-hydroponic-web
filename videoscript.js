@@ -9,14 +9,14 @@ document.addEventListener("DOMContentLoaded", function() {
       currentTimeDisplay: false,
       durationDisplay: false,
       remainingTimeDisplay: false,
-      playToggle: {}, // Added play/pause button
+      playToggle: false,
       volumeMenuButton: false
     },
     autoplay: true,
     muted: true,
     html5: {
       hls: {
-        // overrideNative: true, // Consider removing this line after thorough testing on mobile
+        overrideNative: true,
         liveSyncDurationCount: 30
       },
       nativeAudioTracks: false,
@@ -28,20 +28,6 @@ document.addEventListener("DOMContentLoaded", function() {
   videoElement.setAttribute('webkit-playsinline', '');
 
   var hls;
-  var playButtonOverlay = document.createElement('div');
-  playButtonOverlay.className = 'play-button-overlay';
-  playButtonOverlay.innerHTML = '<span>Play</span>';
-  videoElement.parentNode.insertBefore(playButtonOverlay, videoElement.nextSibling);
-  playButtonOverlay.style.position = 'absolute';
-  playButtonOverlay.style.top = '50%';
-  playButtonOverlay.style.left = '50%';
-  playButtonOverlay.style.transform = 'translate(-50%, -50%)';
-  playButtonOverlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-  playButtonOverlay.style.color = 'white';
-  playButtonOverlay.style.padding = '10px 20px';
-  playButtonOverlay.style.borderRadius = '5px';
-  playButtonOverlay.style.cursor = 'pointer';
-  playButtonOverlay.style.display = 'block'; // Initially show the play button on mobile
 
   function initializeHls() {
     if (Hls.isSupported()) {
@@ -54,24 +40,11 @@ document.addEventListener("DOMContentLoaded", function() {
       hls.attachMedia(videoElement);
 
       hls.on(Hls.Events.MANIFEST_PARSED, function() {
-        // Attempt to play, handle the promise
-        var playPromise = player.play();
-
-        if (playPromise !== undefined) {
-          playPromise.then(function() {
-            playButtonOverlay.style.display = 'none'; // Autoplay started successfully after user interaction
-          }).catch(function(error) {
-            // Autoplay was prevented, the overlay will remain
-            console.log("Autoplay prevented:", error);
-          });
-        } else {
-          playButtonOverlay.style.display = 'none'; // No promise returned, assume success or handle differently
-        }
+        player.play();
       });
 
       hls.on(Hls.Events.ERROR, function(event, data) {
         if (data.fatal) {
-          console.error("HLS fatal error:", data);
           if (data.type === Hls.ErrorTypes.NETWORK_ERROR) {
             hls.startLoad();
           } else {
@@ -95,14 +68,7 @@ document.addEventListener("DOMContentLoaded", function() {
     liveButton.style.fontWeight = 'bold';
 
     liveButton.onclick = function() {
-      // Seek to live edge instead of re-initializing
-      if (hls && hls.liveSyncPosition !== null) {
-        player.currentTime(hls.liveSyncPosition);
-        console.log('Jumped to live edge.');
-      } else {
-        console.log('Could not jump to live edge: hls instance or liveSyncPosition not available.');
-        initializeHls(); // Fallback to re-initialization if needed
-      }
+      initializeHls();
     };
 
     player.controlBar.el().appendChild(liveButton);
@@ -123,10 +89,9 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 
-  playButtonOverlay.addEventListener('click', function() {
-    player.play();
-    playButtonOverlay.style.display = 'none';
+  document.addEventListener('click', function() {
+    if (player.paused()) {
+      player.play();
+    }
   });
-
-  // Removed the document-level click listener
 });
