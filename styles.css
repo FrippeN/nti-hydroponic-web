@@ -1,5 +1,6 @@
 /* General Styles */
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -19,7 +20,7 @@ body {
 
 /* Disable scrolling */
 body.modal-open {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 /* Ensures Clappr Player is visible */
@@ -28,6 +29,12 @@ body.modal-open {
   height: 100%;
 }
 
+/* Ensure the Clappr video covers the streaming container */
+#player video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 
 /* Header */
 header {
@@ -86,26 +93,18 @@ header nav ul li a:hover {
 /* Streaming Container */
 #streaming-container {
   position: relative;
-  top: 1vh; /* 3vh below the header */
+  top: 1vh; /* Slightly below header */
   z-index: 5;
   margin: auto;
-  width: 70vw; /* Responsive width */
-  max-width: 1200px; /* Limit the maximum size */
-  aspect-ratio: 16 / 9; /* Maintain 16:9 aspect ratio */
-  background: rgba(255, 255, 255, 0.1); /* Translucent background */
+  width: 65%; /* Width is 65% of the screen */
+  aspect-ratio: 16 / 9; /* Maintains a 16:9 ratio for height */
+  background: rgba(255, 255, 255, 0.1);
   padding: 20px;
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Subtle shadow */
-  backdrop-filter: blur(5px); /* Blur effect for consistency */
-  overflow: hidden; /* Ensure content is contained within the container */
-}
-
-#streaming-container .video-js {
-  width: 100%; /* Full width of the container */
-  height: 100%; /* Full height of the container */
-  border: none; /* Remove video border */
-  display: block; /* Ensure the video is a block element */
-  margin: 0 auto; /* Center the video horizontally */
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  overflow: hidden;
+  flex-shrink: 0; /* Prevent the container from shrinking in the flex layout */
 }
 
 .about_container {
@@ -202,7 +201,9 @@ footer {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: calc(100vh - 60px); /* Justerar höjden för att ta hänsyn till rubriken och tillbaka-länken */
+  height: calc(
+    100vh - 60px
+  ); /* Justerar höjden för att ta hänsyn till rubriken och tillbaka-länken */
 }
 
 /* Gör att inbäddningen av Google Docs täcker hela området */
@@ -217,17 +218,17 @@ iframe {
 }
 
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1000; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
 /* Modal Content */
@@ -237,7 +238,7 @@ iframe {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 80%;
-  max-width: 1300px; 
+  max-width: 1300px;
   background-color: rgba(255, 255, 255, 0.1);
   padding: 20px;
   box-sizing: border-box; /* Ensure padding is included in the width and height */
@@ -254,38 +255,54 @@ iframe {
 
 /* Add Animation */
 @-webkit-keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
 }
 
 @keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
 }
 
 /* The Close Button */
 .close {
-    color: white;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-    color: gray;
-    text-decoration: none;
-    cursor: pointer;
+  color: gray;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .modal-header {
-    padding: 2px 16px;
+  padding: 2px 16px;
 }
 
-.modal-body {padding: 2px 16px;}
+.modal-body {
+  padding: 2px 16px;
+}
 
-.modal-content h1, h2, h3 {
-    font-size: 1.5rem;
+.modal-content h1,
+h2,
+h3 {
+  font-size: 1.5rem;
 }
 
 /* Responsive Design */
