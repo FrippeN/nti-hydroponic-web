@@ -137,7 +137,7 @@ header nav ul li a:hover {
 .documents_container {
   flex-grow: 1; /* Allow this container to grow and take up available space */
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 20px;
   width: 80%;
   max-width: 1200px;
@@ -174,7 +174,7 @@ header nav ul li a:hover {
   color: white; /* Text color */
   font-weight: bold; /* Bold text */
   font-size: 1em;
-  height: 200px; /* Set a fixed height for all boxes */
+  height: 200px;
 }
 
 .modal-button:hover {
