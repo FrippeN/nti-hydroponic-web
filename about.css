@@ -28,9 +28,12 @@ body.modal-open {
   height: 100%;
 }
 
-/* Header (consistent with other pages) */
+/* Desktop Header for About.css */
 header {
-  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Content starting from left */
+  gap: 20px; /* Space between logo and navigation */
   padding: 4vh 2vw;
   position: fixed;
   top: 0;
@@ -38,31 +41,27 @@ header {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(5px);
   z-index: 10;
-  display: flex;
-  align-items: center;
   height: 6vh;
 }
 
 header .logo {
   display: flex;
   align-items: center;
-  margin-right: 2vw;
 }
 
 header .logo img {
-  height: 6vh;
+  height: 50px;
   width: auto;
 }
 
 header nav {
-  display: flex;
-  align-items: center;
+  margin-left: 20px; /* Slight offset from the logo */
 }
 
 header nav ul {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 10px;
   margin: 0;
   padding: 0;
 }
@@ -339,9 +338,41 @@ h3 {
     padding-top: 100px; /* Adjust for smaller header on mobile */
   }
 
+  header {
+    flex-direction: column; /* Stack logo and nav vertically */
+    align-items: center;
+    justify-content: center;
+    padding: 2vh 2vw;
+    height: auto;
+  }
+
+  header .logo {
+    margin-bottom: 10px;
+  }
+
   header .logo img {
-    height: 8vh; /* Adjust the height as needed */
-    width: auto; /* Maintain aspect ratio */
+    height: 50px; /* Adjust logo size if needed */
+    width: auto;
+  }
+
+  header nav {
+    margin-left: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  header nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+  }
+
+  header nav ul li a {
+    font-size: 1.1em;
+    padding: 5px 10px;
   }
 
   #streaming-container {
