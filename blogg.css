@@ -74,6 +74,7 @@ header nav ul li a {
   text-decoration: none;
   color: white;
   font-size: 1.2em;
+  margin-left: 2em;
   transition: color 0.3s ease;
 }
 
