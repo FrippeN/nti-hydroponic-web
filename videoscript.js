@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Set liveDelay to 30 seconds behind the live edge.
-  var liveDelay = 30;
+  // Set liveDelay to 15 seconds behind the live edge.
+  var liveDelay = 15;
 
   var player = new Clappr.Player({
     source: "https://hydroponics.ntig.dev/hls/stream.m3u8",
