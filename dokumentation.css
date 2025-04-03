@@ -285,50 +285,107 @@ iframe {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  /* Adjust body padding */
   body {
-    padding-top: 100px; /* Adjust for smaller header on mobile */
+    padding-top: 80px;  /* Matches mobile header height */
   }
 
+  /* Header layout: grid with three columns */
   header {
-    flex-direction: column; /* Stack logo and nav vertically */
-    align-items: center;
-    justify-content: center;
-    padding: 2vh 2vw;
-    height: auto;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;  /* Left spacer, center (logo), right (menu button) */
+    align-items: center;                  /* Vertically centers items */
+    justify-items: center;
+    height: 80px;                         /* Mobile header height */
+    padding: 0 2vw;
   }
   
+  /* Logo is centered in the middle column */
   header .logo {
-    margin-bottom: 10px;
+    grid-column: 2;
+    text-align: center;
   }
   
   header .logo img {
-    height: 50px;
+    height: 50px;       /* Same size as in styles.css */
     width: auto;
   }
   
+  /* Desktop navigation hidden on mobile */
   header nav {
-    margin-left: 0;
-    text-align: center;
+    display: none;
+  }
+  
+  /* Mobile Menu Button placed in the right column */
+  #mobile-menu-button {
+    grid-column: 3;
+    justify-self: end;
+    margin-right: 2vw;  /* Creates spacing from the edge */
+    display: block;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 2em;
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  /* Mobile Menu (dropdown) styles */
+  #mobile-menu {
+    display: none;  /* Hidden by default */
+    position: fixed;
+    top: 100%;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
     width: 100%;
+    height: auto;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(0);
+    z-index: 100;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
   }
   
-  header nav ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
+  #mobile-menu.open {
+    display: block;
   }
   
-  header nav ul li {
+  #mobile-menu ul {
+    list-style: none;
     margin: 0;
+    padding: 0;
+    text-align: center;
   }
   
-  header nav ul li a {
-    font-size: 1.1em;
-    padding: 5px 10px;
+  #mobile-menu ul li {
+    margin-bottom: 15px;
   }
-
+  
+  #mobile-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    display: block;
+    padding: 10px;
+    transition: color 0.3s ease;
+  }
+  
+  #mobile-menu ul li a:hover {
+    color: #ee60b8;
+  }
+  
+  #mobile-menu .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5em;
+    color: white;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+  }
+  
   #streaming-container {
     width: 90vw; /* Adjust width for mobile */
   }
@@ -336,5 +393,10 @@ iframe {
   #about-container {
     width: 90vw; /* Adjust width for mobile */
     margin-left: 10px; /* Adjust margin for mobile */
+  }
+
+  .documents_container {
+    width: 90vw;
+    margin-left: 10px;
   }
 }
