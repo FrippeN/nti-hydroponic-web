@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NTI Hydroponics</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" href="/media/ntilogo.png" type="image/x-icon" />
-    <!-- Include Clappr from CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
-  </head>
-  <body>
-    <!-- Header -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
     <header>
       <div class="logo">
         <a href="index.html">
@@ -25,18 +27,28 @@
           <li><a href="about.html"><b>Om oss</b></a></li>
         </ul>
       </nav>
+      <button id="mobile-menu-button" aria-label="Open Mobile Menu">☰</button>
+      <div id="mobile-menu">
+        <button class="close-button" aria-label="Close Mobile Menu">&times;</button>
+        <ul>
+          <li><a href="index.html"><b>Livestream</b></a></li>
+          <li><a href="blogg.html"><b>Blogg</b></a></li>
+          <li><a href="dokumentation.html"><b>Dokumentation</b></a></li>
+          <li><a href="about.html"><b>Om oss</b></a></li>
+        </ul>
+      </div>
     </header>
 
-    <!-- Streaming Container -->
     <div id="streaming-container">
-      <!-- Clappr replaces the traditional video element -->
-      <div id="player"></div>
+        <div id="player"></div>
     </div>
 
-    <!-- External JavaScript file handling Clappr configuration -->
-    <script src="videoscript.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+    <script src="videoscript.js" defer></script>
+    <script src="menu-modal.js" defer></script>
 
-    <!-- Footer -->
-    <footer>© 2025 NTI Gymnasiet Uppsala</footer>
+    <footer>
+      © 2025 NTI Gymnasiet Uppsala
+    </footer>
   </body>
 </html>

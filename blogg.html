@@ -4,10 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NTI Hydroponics</title>
-    <link rel="stylesheet" href="blogg.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="menu-modal.js" defer></script>
     <link rel="icon" href="/media/ntilogo.png" type="image/x-icon" />
   </head>
-  <body>
+  <body class="blogg">
     <!-- Header -->
     <header>
       <div class="logo">
@@ -17,18 +18,33 @@
       </div>
       <nav>
         <ul>
-        <li><a href="index.html"><b>Livestream</b></a></li>
-          <li><a href="index.html"><b>Blogg</b></a></li>
+          <li><a href="index.html"><b>Livestream</b></a></li>
+          <li><a href="blogg.html"><b>Blogg</b></a></li>
           <li><a href="dokumentation.html"><b>Dokumentation</b></a></li>
           <li><a href="about.html"><b>Om oss</b></a></li>
         </ul>
       </nav>
+      <button id="mobile-menu-button" aria-label="Open Mobile Menu">☰</button>
+      <div id="mobile-menu">
+        <button class="close-button" aria-label="Close Mobile Menu">&times;</button>
+        <ul>
+          <li><a href="index.html"><b>Livestream</b></a></li>
+          <li><a href="blogg.html"><b>Blogg</b></a></li>
+          <li><a href="dokumentation.html"><b>Dokumentation</b></a></li>
+          <li><a href="about.html"><b>Om oss</b></a></li>
+        </ul>
+      </div>
     </header>
+
 
     <!-- Main Content -->
     <main class="main_content">
-        <p class="construction-text">Hemsida under konstruktion...</p>
-      </main>
+      <p class="construction-text">Hemsida under konstruktion...</p>
 
+    </main>
+
+    <footer>
+      © 2025 NTI Gymnasiet Uppsala
+    </footer>
   </body>
 </html>
