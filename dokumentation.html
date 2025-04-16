@@ -89,38 +89,8 @@
     </div>
 
     <!-- Footer -->
-    <footer>© 2025 NTI Gymnasiet Uppsala</footer>
-    <script src="script.js"></script>
-    <script>
-      const mobileMenuButton = document.getElementById('mobile-menu-button');
-      const mobileMenu = document.getElementById('mobile-menu');
-      const closeButton = mobileMenu.querySelector('.close-button');
-      const navLinks = mobileMenu.querySelectorAll('a');
+    <footer> 2025 NTI Gymnasiet Uppsala</footer>
+    <script src="menu-modal.js" defer></script>
 
-      mobileMenuButton.addEventListener('click', () => {
-          mobileMenu.classList.add('open');
-          document.body.classList.add('modal-open');
-      });
-
-      closeButton.addEventListener('click', () => {
-          mobileMenu.classList.remove('open');
-          document.body.classList.remove('modal-open');
-      });
-
-      navLinks.forEach(link => {
-          link.addEventListener('click', () => {
-              mobileMenu.classList.remove('open');
-              document.body.classList.remove('modal-open');
-          });
-      });
-
-      // Optional: close menu when clicking outside
-      document.addEventListener('click', (event) => {
-          if (mobileMenu.classList.contains('open') && !mobileMenu.contains(event.target) && event.target !== mobileMenuButton) {
-              mobileMenu.classList.remove('open');
-              document.body.classList.remove('modal-open');
-          }
-      });
-    </script>
   </body>
 </html>

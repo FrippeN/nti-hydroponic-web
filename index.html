@@ -6,75 +6,49 @@
     <title>NTI Hydroponics</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" href="/media/ntilogo.png" type="image/x-icon" />
-    <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+
 </head>
 <body>
     <header>
-        <div class="logo">
-            <a href="index.html">
-                <img src="media/nti.png" alt="NTI Gymnasiet Uppsala Logo" />
-            </a>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.html"><b>Livestream</b></a></li>
-                <li><a href="blogg.html"><b>Blogg</b></a></li>
-                <li><a href="dokumentation.html"><b>Dokumentation</b></a></li>
-                <li><a href="about.html"><b>Om oss</b></a></li>
-            </ul>
-        </nav>
-        <button id="mobile-menu-button" aria-label="Open Mobile Menu">☰</button>
-        <div id="mobile-menu">
-            <button class="close-button" aria-label="Close Mobile Menu">&times;</button>
-            <ul>
-                <li><a href="index.html"><b>Livestream</b></a></li>
-                <li><a href="blogg.html"><b>Blogg</b></a></li>
-                <li><a href="dokumentation.html"><b>Dokumentation</b></a></li>
-                <li><a href="about.html"><b>Om oss</b></a></li>
-            </ul>
-        </div>
+      <div class="logo">
+        <a href="index.html">
+          <img src="media/nti.png" alt="NTI Gymnasiet Uppsala Logo" />
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html"><b>Livestream</b></a></li>
+          <li><a href="blogg.html"><b>Blogg</b></a></li>
+          <li><a href="dokumentation.html"><b>Dokumentation</b></a></li>
+          <li><a href="about.html"><b>Om oss</b></a></li>
+        </ul>
+      </nav>
+      <button id="mobile-menu-button" aria-label="Open Mobile Menu">☰</button>
+      <div id="mobile-menu">
+        <button class="close-button" aria-label="Close Mobile Menu">&times;</button>
+        <ul>
+          <li><a href="index.html"><b>Livestream</b></a></li>
+          <li><a href="blogg.html"><b>Blogg</b></a></li>
+          <li><a href="dokumentation.html"><b>Dokumentation</b></a></li>
+          <li><a href="about.html"><b>Om oss</b></a></li>
+        </ul>
+      </div>
     </header>
 
     <div id="streaming-container">
         <div id="player"></div>
     </div>
 
-    <script src="videoscript.js"></script>
-    <script>
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeButton = mobileMenu.querySelector('.close-button');
-        const navLinks = mobileMenu.querySelectorAll('a');
-        const headerNav = document.querySelector('header nav');
+    <script src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
+    <script src="videoscript.js" defer></script>
+    <script src="menu-modal.js" defer></script>
 
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.add('open');
-            document.body.classList.add('modal-open');
-        });
-
-        closeButton.addEventListener('click', () => {
-            mobileMenu.classList.remove('open');
-            document.body.classList.remove('modal-open');
-        });
-
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('open');
-                document.body.classList.remove('modal-open');
-            });
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', (event) => {
-            if (mobileMenu.classList.contains('open') && !mobileMenu.contains(event.target) && event.target !== mobileMenuButton) {
-                mobileMenu.classList.remove('open');
-                document.body.classList.remove('modal-open');
-            }
-        });
-    </script>
-</body>
+    <footer>
+      © 2025 NTI Gymnasiet Uppsala
+    </footer>
+  </body>
 </html>
