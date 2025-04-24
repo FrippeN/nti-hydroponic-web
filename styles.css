@@ -1,5 +1,6 @@
 /* General Styles */
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -21,7 +22,8 @@ body.modal-open {
   overflow: hidden;
 }
 
-main, .main_content {
+main,
+.main_content {
   flex: 1 0 auto;
 }
 
@@ -44,7 +46,12 @@ header {
   top: 0;
   height: 12%;
   width: 100%;
-  background: rgba(255, 255, 255, 0.1); /* Matching streaming container background */
+  background: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* Matching streaming container background */
   backdrop-filter: blur(5px); /* Matching streaming container */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Matching streaming container */
   z-index: 10;
@@ -145,7 +152,12 @@ header nav ul li a:hover {
   position: fixed;
   top: 100%;
   right: 0;
-  background-color: rgba(128, 128, 128, 0.92); /* Medium gray with same opacity */
+  background-color: rgba(
+    128,
+    128,
+    128,
+    0.92
+  ); /* Medium gray with same opacity */
   backdrop-filter: blur(10px);
   width: 100%;
   height: auto;
@@ -233,6 +245,7 @@ header nav ul li a:hover {
   flex: 1; /* Matches the height of .about_text */
   display: flex;
   flex-direction: column;
+
   justify-content: center; /* Centers images vertically */
   align-items: center; /* Centers images horizontally within their container */
 }
@@ -240,6 +253,7 @@ header nav ul li a:hover {
 .about_image img {
   width: 100%; /* Makes images take full width of their container */
   height: auto; /* Maintains aspect ratio */
+  border-radius: 10px; /* Matching streaming container */
   max-height: 33%; /* Divides the height among the three images equally */
   object-fit: contain; /* Ensures images fit without distortion */
   margin-bottom: 10px; /* Adds spacing between images */
