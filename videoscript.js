@@ -1,7 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Set liveDelay to 15 seconds behind the live edge.
-  var liveDelay = 15;
-
   var player = new Clappr.Player({
     source: "https://hydroponics.ntig.dev/hls/stream.m3u8",
     parentId: "#player",
@@ -10,49 +7,28 @@ document.addEventListener("DOMContentLoaded", function () {
     isLive: true,
     height: "100%",
     width: "100%",
+    dvrEnabled: true,
     playback: {
       hlsjsConfig: {
-        liveSyncDuration: liveDelay,
-        liveMaxLatencyDuration: liveDelay + 5,
-        maxBufferLength: liveDelay * 2,
-        maxMaxBufferLength: liveDelay * 2,
-        backBufferLength: liveDelay * 2,
+        maxBufferLength: 7200,      // Allow up to 2 hours (in seconds) of buffer
+        liveSyncDuration: 30,       // How close to live edge to stay (in seconds)
+        liveMaxLatencyDuration: 7200 // Maximum latency allowed (2 hours)
       },
     },
   });
 
-  // Function to seek to a point liveDelay seconds behind the current duration
-  function seekToLiveEdge() {
+  // Optional: log available duration after load
+  player.on(Clappr.Events.PLAYER_PLAY, function () {
     var playback = player.core.getCurrentPlayback();
     if (playback && playback.getDuration) {
-      var duration = playback.getDuration();
-      if (duration && !isNaN(duration) && duration > liveDelay) {
-        var targetPosition = duration - liveDelay;
-        // Only seek if we're more than 5 seconds away from the target
-        if (Math.abs(playback.currentTime - targetPosition) > 5) {
-          player.seek(targetPosition);
-          console.log("Jumped to live edge (delay " + liveDelay + "s):", targetPosition);
-        }
-      } else {
-        console.log("Live edge not available or not enough duration.");
-      }
+      console.log("Stream duration (should include DVR window):", playback.getDuration());
     }
-  }
-
-  // Force seek to live edge (with 30s delay) when playback starts.
-  player.on(Clappr.Events.PLAYER_PLAY, function () {
-    seekToLiveEdge();
   });
 
-  // Also, force the seek after any seek operation completes.
-  player.on(Clappr.Events.PLAYER_SEEKED, function () {
-    seekToLiveEdge();
-  });
-
-  // Log errors to the console
+  // Log player errors
   player.on(Clappr.Events.PLAYER_ERROR, function (error) {
     console.error("Clappr player error:", error);
   });
 
-  console.log("Clappr player initialized with a " + liveDelay + "s live delay sync.");
+  console.log("Clappr player initialized with 2-hour DVR support.");
 });
