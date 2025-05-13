@@ -4,184 +4,29 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  display: flex;
-  flex-direction: column;
 }
 
 body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family: Arial, sans-serif;
-  height: 100vh;
   position: relative;
-  padding-top: 150px; /* Reserve space for header */
-  overflow: auto; /* Enable scrolling */
+  padding-top: 110px; /* Adjust to match header height */
+  overflow: auto;
   background: url("media/bg.jpg") no-repeat center center fixed;
   background-size: cover;
 }
 
-/* Disable scrolling */
 body.modal-open {
   overflow: hidden;
 }
 
-/* Ensures Clappr Player is visible */
-#player {
-  width: 100%;
-  height: 100%;
+main,
+.main_content {
+  flex: 1 0 auto;
 }
 
-/* Ensure the Clappr video covers the streaming container */
-#player video {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-/* Header */
-header {
-  background: rgba(255, 255, 255, 0.1); /* Translucent white background */
-  padding: 4vh 2vw; /* Add horizontal padding for margins */
-  position: fixed;
-  top: 0;
-  width: 100%;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Shadow for depth */
-  backdrop-filter: blur(5px); /* Blur effect */
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  height: 6vh; /* Explicit height for the header */
-}
-
-header .logo {
-  display: flex;
-  align-items: center;
-  margin-right: 2vw; /* Adjust margin as needed */
-}
-
-header .logo img {
-  height: 6vh; /* Increase the height as needed */
-  width: auto; /* Maintain aspect ratio */
-}
-
-header nav {
-  display: flex;
-  align-items: center;
-}
-
-header nav ul {
-  list-style: none;
-  display: flex;
-  gap: 20px; /* Space between links */
-  margin: 0;
-  padding: 0;
-}
-
-header nav ul li {
-  display: inline;
-}
-
-header nav ul li a {
-  text-decoration: none;
-  color: white; /* White text color */
-  font-size: 1.2em; /* Increase font size */
-  transition: color 0.3s ease; /* Smooth transition for hover effect */
-}
-
-header nav ul li a:hover {
-  color: #ee60b8; /* Change color on hover */
-}
-
-/* Streaming Container */
-#streaming-container {
-  position: relative;
-  top: 1vh; /* Slightly below header */
-  z-index: 5;
-  margin: auto;
-  width: 65%; /* Width is 65% of the screen */
-  aspect-ratio: 16 / 9; /* Maintains a 16:9 ratio for height */
-  background: rgba(255, 255, 255, 0.1);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(5px);
-  overflow: hidden;
-  flex-shrink: 0; /* Prevent the container from shrinking in the flex layout */
-}
-
-.about_container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  width: 40%; /* Make the container smaller */
-  max-width: 600px; /* Limit the maximum size */
-  margin: 20px 0 20px 20px; /* Position the container on the left side */
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(5px);
-  text-align: center; /* Center the text inside the container */
-  color: white;
-}
-
-.about_container h1 {
-  grid-column: 1 / -1; /* Make the title span all columns */
-  margin-bottom: 20px; /* Add some space below the title */
-  color: white;
-  font-size: 1.5em; /* Increase font size */
-  font-weight: bold; /* Make the text bold */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow for better readability */
-}
-
-/* Documentation Container */
-.documents_container {
-  flex-grow: 1; /* Allow this container to grow and take up available space */
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  width: 80%;
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(5px);
-  text-align: center; /* Center the text inside the container */
-  color: white;
-}
-
-.documents_container h1 {
-  grid-column: 1 / -1; /* Make the title span all columns */
-  margin-bottom: 20px; /* Add some space below the title */
-  color: white;
-}
-
-/* Box */
-.modal-button {
-  display: flex; /* Use flexbox */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  background-color: rgba(255, 255, 255, 0.2);
-  border: none;
-  border-radius: 8px;
-  text-align: center;
-  padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s, box-shadow 0.2s;
-  font-family: Arial, sans-serif;
-  text-decoration: none; /* Remove underline from links */
-  color: white; /* Text color */
-  font-weight: bold; /* Bold text */
-  font-size: 1em;
-  height: 200px; /* Set a fixed height for all boxes */
-}
-
-.modal-button:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-}
-
-/* Footer */
 footer {
   background: rgba(255, 255, 255, 0.1);
   padding: 10px 0;
@@ -193,42 +38,307 @@ footer {
   font-size: 14px;
   position: relative;
   bottom: 0;
-  margin-top: 50px; /* Added margin to push the footer further down */
+  margin-top: 50px;
 }
 
-.doc-container {
-  flex-grow: 1; /* Gör att denna sektion fyller all tillgänglig plats */
-  display: flex;
-  flex-direction: column;
+header {
+  position: fixed; /* Ensures it's at the top */
+  top: 0;
+  height: 12%;
   width: 100%;
-  height: calc(
-    100vh - 60px
-  ); /* Justerar höjden för att ta hänsyn till rubriken och tillbaka-länken */
+  background: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* Matching streaming container background */
+  backdrop-filter: blur(5px); /* Matching streaming container */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Matching streaming container */
+  z-index: 10;
+  display: flex; /* Added for desktop alignment */
+  align-items: center; /* Vertically centers items */
+  justify-content: flex-start; /* Aligns items to the left */
+  padding: 0 20px; /* Adds some padding for spacing */
 }
 
-/* Gör att inbäddningen av Google Docs täcker hela området */
-iframe {
+#streaming-container {
+  position: relative;
+  top: 1vh;
+  z-index: 5;
+  margin: auto;
+  width: 70vw;
+  max-width: 1200px;
+  aspect-ratio: 16 / 9;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#player {
   width: 100%;
   height: 100%;
+  aspect-ratio: 16/9;
+  object-fit: contain;
+  display: block;
+  min-width: 0;
+  min-height: 0;
   border: none;
+}
+
+/* Logo and Navigation for Desktop */
+header .logo {
+  display: flex;
+  align-items: center;
+}
+
+header .logo img {
+  height: 50px;
+  width: auto;
+}
+
+header nav {
+  margin-left: 20px;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+header nav ul li a {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  font-size: 1.2em;
+  margin-left: 2em !important;
+  transition: color 0.3s ease;
+  padding: 10px 0;
+}
+
+header nav ul li a:hover {
+  color: #ee60b8;
+}
+
+/* Mobile Menu Styles */
+#mobile-menu-button {
+  display: none;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 2em;
+  cursor: pointer;
+  padding: 10px;
+  margin-left: auto;
+  min-width: 48px;
+  min-height: 48px;
+  line-height: 1;
+}
+
+#mobile-menu-button:hover {
+  color: #ee60b8;
+}
+
+#mobile-menu {
+  display: none;
+  position: fixed;
+  top: 100%;
+  right: 0;
+  background-color: rgba(
+    128,
+    128,
+    128,
+    0.92
+  ); /* Medium gray with same opacity */
+  backdrop-filter: blur(10px);
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  transition: transform 0.3s ease-in-out;
+  transform: translateY(0);
+  z-index: 100;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+#mobile-menu.open {
+  transform: translateY(0);
+  top: 100%;
+}
+
+#mobile-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+#mobile-menu ul li {
+  margin-bottom: 15px;
+}
+
+#mobile-menu ul li a {
+  color: white; /* White text for contrast */
+  text-decoration: none;
+  font-size: 1.2em;
+  display: block;
+  padding: 10px;
+  transition: color 0.3s ease;
+}
+
+#mobile-menu ul li a:hover {
+  color: #ee60b8; /* Highlight color remains */
+}
+
+#mobile-menu .close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5em;
+  color: white; /* Ensure close button contrasts */
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+/* About and Documents Containers */
+.about_container {
+  width: 100%;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px; /* Matching streaming container */
+  background: rgba(255, 255, 255, 0.1); /* Matching streaming container */
+  border-radius: 10px; /* Matching streaming container */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Matching streaming container */
+  backdrop-filter: blur(5px); /* Matching streaming container */
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Matching streaming container */
+}
+
+.about_wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  flex-wrap: nowrap;
+  align-items: stretch; /* Ensures both sides stretch to the same height */
+  justify-content: space-between; /* Pushes images to the right */
+  width: 100%;
+}
+
+.about_text {
+  flex: 1; /* Takes up necessary space for text */
+}
+
+.about_image {
+  flex: 1; /* Matches the height of .about_text */
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center; /* Centers images vertically */
+  align-items: center; /* Centers images horizontally within their container */
+}
+
+.about_image img {
+  width: 100%; /* Makes images take full width of their container */
+  height: auto; /* Maintains aspect ratio */
+  border-radius: 10px; /* Matching streaming container */
+  max-height: 33%; /* Divides the height among the three images equally */
+  object-fit: contain; /* Ensures images fit without distortion */
+  margin-bottom: 10px; /* Adds spacing between images */
+}
+
+.documents_container {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+  width: 80%;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  text-align: center;
+  color: white;
+}
+
+.documents_container h1 {
+  grid-column: 1 / -1;
+  margin-bottom: 20px;
+  color: white;
+}
+
+/* Modal Button and Related Styles */
+.modal-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 8px;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  font-family: Arial, sans-serif;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 1em;
+  height: 200px;
+  max-width: 200px;
+  width: 100%;
+  cursor: pointer;
+  margin: 0 auto 12px auto;
+}
+
+.modal-button:hover {
+  transform: translateY(-5px);
 }
 
 .documents_container button:active {
   transform: translateY(5px);
 }
 
+.doc-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: calc(100vh - 60px);
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1000; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 100px;
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0); /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 /* Modal Content */
@@ -241,20 +351,20 @@ iframe {
   max-width: 1300px;
   background-color: rgba(255, 255, 255, 0.1);
   padding: 20px;
-  box-sizing: border-box; /* Ensure padding is included in the width and height */
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px);
-  text-align: center; /* Center the text inside the container */
+  text-align: center;
   color: white;
-  -webkit-animation-name: animatetop;
-  -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
   animation-duration: 0.4s;
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
 }
 
 /* Add Animation */
-@-webkit-keyframes animatetop {
+@keyframes animatetop {
   from {
     top: -300px;
     opacity: 0;
@@ -265,7 +375,7 @@ iframe {
   }
 }
 
-@keyframes animatetop {
+@-webkit-keyframes animatetop {
   from {
     top: -300px;
     opacity: 0;
@@ -282,46 +392,178 @@ iframe {
   float: right;
   font-size: 28px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .close:hover,
 .close:focus {
   color: gray;
   text-decoration: none;
-  cursor: pointer;
 }
 
-.modal-header {
-  padding: 2px 16px;
-}
-
+.modal-header,
 .modal-body {
   padding: 2px 16px;
 }
 
 .modal-content h1,
-h2,
-h3 {
+.modal-content h2,
+.modal-content h3 {
   font-size: 1.5rem;
+}
+
+/* Main Content */
+.main_content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  text-align: center;
+}
+
+body.blogg .main_content {
+  min-height: calc(100vh - 6vh - 600px);
+}
+
+body.blogg .construction-text {
+  color: white;
+  font-size: 2em;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 2em;
+  text-align: center;
+  animation: animatetop 0.4s;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   body {
-    padding-top: 100px; /* Adjust for smaller header on mobile */
+    padding-top: 80px;
+    overflow-x: hidden;
+  }
+
+  header {
+    height: 80px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    justify-items: center;
+    padding: 0 2vw;
+  }
+
+  header .logo {
+    grid-column: 2;
+    text-align: center;
   }
 
   header .logo img {
-    height: 8vh; /* Adjust the height as needed */
-    width: auto; /* Maintain aspect ratio */
+    height: 40px;
+    width: auto;
+  }
+
+  header nav {
+    display: none;
+  }
+
+  #mobile-menu-button {
+    display: block;
+    grid-column: 3;
+    justify-self: end;
+    margin-right: 2vw;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 2.4em;
+    cursor: pointer;
+    padding: 16px 16px 16px 8px;
+    min-width: 48px;
+    min-height: 48px;
+    line-height: 1;
+  }
+
+  #mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 100vh;
+    background-color: rgba(68, 68, 68, 0.5); /* Medium gray with same opacity */
+    backdrop-filter: blur(10px);
+    width: 100vw;
+    padding: 40px 0 0 0;
+    transition: opacity 0.3s;
+    z-index: 1000;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  #mobile-menu.open {
+    display: block;
+  }
+
+  #mobile-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  #mobile-menu ul li {
+    margin-bottom: 22px;
+  }
+
+  #mobile-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.3em;
+    padding: 18px 0;
+    display: block;
+    transition: color 0.3s ease;
+    border-radius: 8px;
+  }
+
+  #mobile-menu ul li a:hover,
+  #mobile-menu ul li a:focus {
+    color: #ee60b8;
+    background: rgba(255, 255, 255, 0.07);
+  }
+
+  #mobile-menu .close-button {
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    font-size: 2.4em;
+    color: white;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    min-width: 48px;
+    min-height: 48px;
+    line-height: 1;
+    z-index: 1010;
   }
 
   #streaming-container {
-    width: 90vw; /* Adjust width for mobile */
+    position: relative;
+    width: 90vw;
+    top: 70px;
+    margin-top: 0;
+    padding: 10px;
   }
 
-  #about-container {
-    width: 90vw; /* Adjust width for mobile */
-    margin-left: 10px; /* Adjust margin for mobile */
+  #player {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16/9;
+    object-fit: contain;
+    display: block;
+    min-width: 0;
+    min-height: 0;
+  }
+
+  .about_wrapper {
+    flex-direction: column; /* Stack images below text on mobile */
   }
 }
