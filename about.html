@@ -1,102 +1,125 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="sv">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Om oss - NTI Hydroponics</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="NTI Hydroponics: hydroponisk odling, projektets dokumentation och livestream från NTI Gymnasiet Uppsala."
+    />
+    <meta name="theme-color" content="#210d34" />
+    <title>Om projektet | NTI Hydroponics</title>
+    <link rel="icon" href="media/ntilogo.png" />
     <link rel="stylesheet" href="styles.css" />
     <script src="menu-modal.js" defer></script>
-    <link rel="icon" href="/media/ntilogo.png" type="image/x-icon" />
   </head>
   <body>
-    <!-- Header (consistent with other pages) -->
-    <header>
-      <div class="logo">
-        <a href="index.html">
-          <img src="media/nti.png" alt="NTI Gymnasiet Uppsala Logo" />
-        </a>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="index.html"><b>Livestream</b></a></li>
-          <li><a href="dokumentation.html"><b>Dokumentation</b></a></li>
-          <li><a href="about.html"><b>Om oss</b></a></li>
-        </ul>
+    <a class="skip-link" href="#main">Hoppa till innehållet</a>
+    <div class="fluid-bg" aria-hidden="true"><i></i><i></i><i></i></div>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="NTI Hydroponics, startsida"
+        ><img src="media/nti.png" alt="NTI Gymnasiet Uppsala" /><span
+          >HYDROPONICS</span
+        ></a
+      >
+      <button
+        id="mobile-menu-button"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-nav"
+      >
+        Meny <span aria-hidden="true">＋</span>
+      </button>
+      <nav id="site-nav" aria-label="Huvudmeny">
+        <a href="index.html">Odlingen</a
+        ><a href="dokumentation.html">Dokumentation</a
+        ><a href="about.html" aria-current="page">Om projektet</a>
       </nav>
-      <button id="mobile-menu-button" aria-label="Open Mobile Menu">☰</button>
-      <div id="mobile-menu">
-        <button class="close-button" aria-label="Close Mobile Menu">&times;</button>
-        <ul>
-          <li><a href="index.html"><b>Livestream</b></a></li>
-          <li><a href="dokumentation.html"><b>Dokumentation</b></a></li>
-          <li><a href="about.html"><b>Om oss</b></a></li>
-        </ul>
-      </div>
     </header>
-
-
-    <!-- Main Content -->
-    <main class="about_container">
-      <div class="about_wrapper">
-        <div class="about_text">
-          <h1>Om oss</h1>
+    <main id="main">
+      <section class="page-intro wrap">
+        <p class="eyebrow">OM PROJEKTET / NTI UPPSALA</p>
+        <h1>En idé som<br /><em>får växa.</em></h1>
+        <p class="intro">
+          NTI Hydroponics är ett elevdrivet projekt om teknik och hydroponisk
+          odling.
+        </p>
+      </section>
+      <section class="about-layout wrap">
+        <div class="about-story">
+          <p class="eyebrow">FRÅN TEORI TILL PRAKTIK</p>
+          <h2>Nyfikenhet som drivkraft.</h2>
           <p>
-            Välkommen till NTI Hydroponics – en elevdriven satsning på
-            innovativa lösningar för hållbar växtodling. Projektet leds av oss i
-            klasserna TE22a och TE22b vid NTI Gymnasiet i Uppsala, där vi
-            strävar efter att kombinera teori med praktik för att utveckla nya,
-            effektiva och miljövänliga odlingsmetoder. Vi fokuserar på att
-            använda NFT-metoden (Nutrient Film Technique) för att bygga en
-            robust hydroponisk odling. Denna metod ger växterna en kontinuerlig
-            tillförsel av näringsrikt vatten samtidigt som syretillförseln
-            maximeras, vilket skapar gynnsamma förutsättningar för snabb och
-            hälsosam tillväxt. Vår ambition är att visa hur modern teknik,
-            innovation och samarbete kan leda till hållbara lösningar som kan
-            skalas upp och anpassas till framtidens behov.
-          </p>
-          <h2>Vårt uppdrag</h2>
-          <p><b>Vårt uppdrag är att</b>:</p>
-
-          <p>
-            <b>• Utveckla en robust hydroponisk odling</b>: Genom NFT-metoden
-            vill vi visa hur man kan odla växter effektivt med minimal
-            vattenförbrukning och utan behov av traditionell jord.
+            Projektet startades av elever i TE22a och TE22b vid NTI Gymnasiet i
+            Uppsala. Ambitionen är att kombinera teori med praktik och utforska
+            lösningar för hållbar växtodling.
           </p>
           <p>
-            <b>• Främja hållbarhet och innovation</b>: Vi kombinerar modern
-            teknik med hållbara strategier för att minska miljöpåverkan och
-            samtidigt maximera produktionen.
+            Arbetet fokuserar på NFT-metoden, Nutrient Film Technique, och på
+            att bygga ett hydroponiskt odlingssystem. Webbplatsen samlar
+            projektets dokumentation och ger plats åt en livestream av odlingen.
           </p>
-          <p>
-            <b>• Dokumentera och dela kunskap</b>: Vi vill sprida erfarenheter
-            och lärdomar från projektet för att inspirera andra till liknande
-            satsningar.
-          </p>
-          <h2>Varför en hemsida?</h2>
-          <p>
-            Vi har valt att skapa en hemsida för att dela dokumentation och
-            erfarenheter på ett effektivt sätt, samt för att möjliggöra en
-            livestream av odlingen. Dokumentationen omfattar allt från
-            projektets första skisser och planering till våra färdiga lösningar
-            och utvärderingar av resultatet. Genom att erbjuda en direktsänd
-            inblick i hur växtodlingen utvecklas i realtid kan både elever, lärare
-            och andra intresserade följa varje steg i processen. På så sätt
-            främjar vi transparens och bjuder in alla som är intresserade att ta del av
-            vårt arbete, vilket skapar engagemang och inspiration för framtida
-            projekt inom hållbar odling.
+          <p class="archive-note">
+            Beskrivningen bygger på projektets befintliga presentation.
+            Klassbeteckningarna hör till projektets ursprung, inte en
+            bekräftelse på vilka som arbetar med det i dag.
           </p>
         </div>
-        <div class="about_image">
-          <img src="media/hydroponicssetup.png" alt="Stock Image 1" />
-          <img src="media/stock2.jpg" alt="Stock Image 2" />
-          <img src="media/stock3.jpg" alt="Stock Image 3" />
+        <figure class="about-model">
+          <img
+            src="media/hydroponicssetup.png"
+            alt="Projektets 3D-modell av odlingssystemet"
+            width="1429"
+            height="804"
+          />
+          <figcaption>3D-modell från projektets bildmaterial.</figcaption>
+        </figure>
+      </section>
+      <section class="mission wrap">
+        <p class="eyebrow">PROJEKTETS AMBITIONER</p>
+        <h2>Utforska. Bygga. Dela.</h2>
+        <div class="mission-list">
+          <details open>
+            <summary>
+              <span>01</span>Utveckla en hydroponisk odling
+              <span aria-hidden="true">＋</span>
+            </summary>
+            <p>
+              Undersöka odling utan traditionell jord och arbeta med
+              NFT-metoden. Det är projektets mål, inte ett påstående om uppmätta
+              resultat.
+            </p>
+          </details>
+          <details>
+            <summary>
+              <span>02</span>Främja hållbarhet och innovation
+              <span aria-hidden="true">＋</span>
+            </summary>
+            <p>
+              Kombinera teknik med ambitionen att hitta hållbara
+              odlingslösningar.
+            </p>
+          </details>
+          <details>
+            <summary>
+              <span>03</span>Dokumentera och dela kunskap
+              <span aria-hidden="true">＋</span>
+            </summary>
+            <p>
+              Samla erfarenheter, skisser och lösningar så att andra kan ta del
+              av arbetet.
+            </p>
+          </details>
         </div>
+        <a class="button primary" href="dokumentation.html"
+          >Utforska dokumentationen ↗</a
+        >
+      </section>
     </main>
-
-    <!-- Footer -->
-    <footer>© 2025 NTI Gymnasiet Uppsala</footer>
-
-    <!-- External JavaScript for Clappr configuration -->
-    <script src="videoscript.js"></script>
+    <footer>
+      <a href="index.html">NTI <b>Hydroponics.</b></a>
+      <p>NTI Gymnasiet Uppsala <span>·</span> TE22a &amp; TE22b</p>
+      <a href="dokumentation.html">Utforska dokumentationen ↗</a>
+    </footer>
   </body>
 </html>
