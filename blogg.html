@@ -1,50 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="sv">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NTI Hydroponics</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="NTI Hydroponics: hydroponisk odling, projektets dokumentation och livestream från NTI Gymnasiet Uppsala."
+    />
+    <meta name="theme-color" content="#210d34" />
+    <title>Blogg | NTI Hydroponics</title>
+    <link rel="icon" href="media/ntilogo.png" />
     <link rel="stylesheet" href="styles.css" />
     <script src="menu-modal.js" defer></script>
-    <link rel="icon" href="/media/ntilogo.png" type="image/x-icon" />
   </head>
-  <body class="blogg">
-    <!-- Header -->
-    <header>
-      <div class="logo">
-        <a href="index.html">
-          <img src="media/nti.png" alt="NTI Gymnasiet Uppsala Logo" />
-        </a>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="index.html"><b>Livestream</b></a></li>
-          <li><a href="blogg.html"><b>Blogg</b></a></li>
-          <li><a href="dokumentation.html"><b>Dokumentation</b></a></li>
-          <li><a href="about.html"><b>Om oss</b></a></li>
-        </ul>
+  <body>
+    <a class="skip-link" href="#main">Hoppa till innehållet</a>
+    <div class="fluid-bg" aria-hidden="true"><i></i><i></i><i></i></div>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="NTI Hydroponics, startsida"
+        ><img src="media/nti.png" alt="NTI Gymnasiet Uppsala" /><span
+          >HYDROPONICS</span
+        ></a
+      >
+      <button
+        id="mobile-menu-button"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-nav"
+      >
+        Meny <span aria-hidden="true">＋</span>
+      </button>
+      <nav id="site-nav" aria-label="Huvudmeny">
+        <a href="index.html">Odlingen</a
+        ><a href="dokumentation.html">Dokumentation</a
+        ><a href="about.html">Om projektet</a>
       </nav>
-      <button id="mobile-menu-button" aria-label="Open Mobile Menu">☰</button>
-      <div id="mobile-menu">
-        <button class="close-button" aria-label="Close Mobile Menu">&times;</button>
-        <ul>
-          <li><a href="index.html"><b>Livestream</b></a></li>
-          <li><a href="blogg.html"><b>Blogg</b></a></li>
-          <li><a href="dokumentation.html"><b>Dokumentation</b></a></li>
-          <li><a href="about.html"><b>Om oss</b></a></li>
-        </ul>
-      </div>
     </header>
-
-
-    <!-- Main Content -->
-    <main class="main_content">
-      <p class="construction-text">Hemsida under konstruktion...</p>
-
+    <main id="main">
+      <section class="page-intro wrap">
+        <p class="eyebrow">BLOGG</p>
+        <h1>Här får idéer<br /><em>ta plats.</em></h1>
+        <p class="intro">
+          Bloggen är under konstruktion. Under tiden finns projektets
+          dokumentation samlad i arkivet.
+        </p>
+        <a class="button primary" href="dokumentation.html"
+          >Till dokumentationen ↗</a
+        >
+      </section>
     </main>
-
     <footer>
-      © 2025 NTI Gymnasiet Uppsala
+      <a href="index.html">NTI <b>Hydroponics.</b></a>
+      <p>NTI Gymnasiet Uppsala <span>·</span> TE22a &amp; TE22b</p>
+      <a href="dokumentation.html">Utforska dokumentationen ↗</a>
     </footer>
   </body>
 </html>
